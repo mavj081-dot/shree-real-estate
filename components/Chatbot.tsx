@@ -189,7 +189,7 @@ export const Chatbot: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.9 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-24 right-6 w-[90vw] md:w-[400px] h-[600px] max-h-[80vh] bg-white rounded-2xl shadow-2xl overflow-hidden z-50 flex flex-col border border-gray-200"
+            className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:bottom-24 md:w-[400px] h-[75dvh] md:h-[600px] max-h-[85dvh] bg-white rounded-2xl shadow-2xl overflow-hidden z-50 flex flex-col border border-gray-200"
           >
             {/* Header */}
             <div className="bg-shree-black p-4 flex items-center gap-4 shadow-md">
@@ -250,8 +250,8 @@ export const Chatbot: React.FC = () => {
                     >
                       <div
                         className={`max-w-[85%] p-4 rounded-2xl text-sm leading-relaxed shadow-sm ${msg.sender === 'user'
-                            ? 'bg-shree-black text-white rounded-br-none'
-                            : 'bg-white text-gray-800 rounded-bl-none border border-gray-100'
+                          ? 'bg-shree-black text-white rounded-br-none'
+                          : 'bg-white text-gray-800 rounded-bl-none border border-gray-100'
                           }`}
                       >
                         {msg.text}
