@@ -1,51 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shree Real Estate | Showrooms & Offices</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'shree-cream': '#F4F4F0',
-              'shree-black': '#111111',
-              'shree-orange': '#D97706', // Matching the logo vibe
-              'shree-brown': '#78350F',
-              'shree-slate': '#738fa0', // Muted blue/teal from screenshots
-              'shree-dark-slate': '#1a1a1a',
-              'shree-gray': '#9ca3af',
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Playfair Display', 'serif'],
-            },
-            backgroundImage: {
-              'gradient-logo': 'linear-gradient(to right, #ea580c, #b45309)',
-            }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shree Real Estate | Showrooms & Offices</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'shree-cream': '#F4F4F0',
+            'shree-black': '#111111',
+            'shree-orange': '#D97706', // Matching the logo vibe
+            'shree-brown': '#78350F',
+            'shree-slate': '#738fa0', // Muted blue/teal from screenshots
+            'shree-dark-slate': '#1a1a1a',
+            'shree-gray': '#9ca3af',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          backgroundImage: {
+            'gradient-logo': 'linear-gradient(to right, #ea580c, #b45309)',
           }
         }
       }
-    </script>
-    <style>
-      body {
-        background-color: #F4F4F0;
-        color: #111111;
-      }
-      /* Hide scrollbar for clean horizontal scroll if needed */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
+    }
+  </script>
+  <style>
+    html {
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: #F4F4F0;
+      color: #111111;
+      overflow-x: hidden;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Hide scrollbar for clean horizontal scroll if needed */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -58,10 +71,11 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
+
+<body>
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

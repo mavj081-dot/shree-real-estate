@@ -11,7 +11,7 @@ import { Chatbot } from './components/Chatbot';
 
 function App() {
   return (
-    <div className="w-full min-h-screen bg-shree-cream text-shree-black selection:bg-shree-orange selection:text-white">
+    <div className="w-full min-h-screen bg-shree-cream text-shree-black selection:bg-shree-orange selection:text-white overflow-hidden">
       <Navbar />
       
       <main>
