@@ -33,6 +33,18 @@ export const Chatbot: React.FC = () => {
     scrollToBottom();
   }, [messages, isLoading, showWhatsAppLink]);
 
+  // Prevent background scrolling when chat is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   // Helper to format history for the backend
   const getHistoryForBackend = () => {
     return messages.map(msg => ({
@@ -192,19 +204,28 @@ export const Chatbot: React.FC = () => {
             className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:bottom-24 md:w-[400px] h-[75dvh] md:h-[600px] max-h-[85dvh] bg-white rounded-2xl shadow-2xl overflow-hidden z-50 flex flex-col border border-gray-200"
           >
             {/* Header */}
-            <div className="bg-shree-black p-4 flex items-center gap-4 shadow-md">
-              <div className="relative">
-                <img
-                  src={RECEPTIONIST_IMAGE}
-                  alt="Anjali"
-                  className="w-12 h-12 rounded-full object-cover border-2 border-shree-orange"
-                />
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-shree-black"></div>
+            <div className="bg-shree-black p-4 flex items-center justify-between shadow-md">
+              <div className="flex items-center gap-4">
+                <div className="relative">
+                  <img
+                    src={RECEPTIONIST_IMAGE}
+                    alt="Anjali"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-shree-orange"
+                  />
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-shree-black"></div>
+                </div>
+                <div>
+                  <h3 className="text-white font-serif text-lg leading-none">Anjali</h3>
+                  <p className="text-gray-400 text-xs font-sans uppercase tracking-wider mt-1">Receptionist • Shree Real Estate</p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-white font-serif text-lg leading-none">Anjali</h3>
-                <p className="text-gray-400 text-xs font-sans uppercase tracking-wider mt-1">Receptionist • Shree Real Estate</p>
-              </div>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
+                aria-label="Close chat"
+              >
+                <X size={24} />
+              </button>
             </div>
 
             {/* Content Area */}
@@ -293,11 +314,11 @@ export const Chatbot: React.FC = () => {
 
             {/* Input Area */}
             {language && !showWhatsAppLink && (
-              <form onSubmit={handleSendMessage} className="p-4 bg-white border-t border-gray-100 flex gap-2">
+              <form onSubmit={handleSendMessage} className="p-3 md:p-4 bg-white border-t border-gray-100 flex gap-2 items-center">
                 <button
                   type="button"
                   onClick={resetChat}
-                  className="p-3 text-gray-400 hover:text-shree-orange hover:bg-orange-50 rounded-full transition-colors"
+                  className="p-3 text-gray-400 hover:text-shree-orange hover:bg-orange-50 rounded-full transition-colors flex-shrink-0"
                   title="Change Language / Restart"
                 >
                   <Globe size={20} />
@@ -307,12 +328,12 @@ export const Chatbot: React.FC = () => {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Type your message..."
-                  className="flex-1 bg-gray-100 rounded-full px-6 py-3 focus:outline-none focus:ring-1 focus:ring-shree-orange text-sm"
+                  className="flex-1 min-w-0 bg-gray-100 rounded-full px-4 md:px-6 py-3 focus:outline-none focus:ring-1 focus:ring-shree-orange text-sm"
                 />
                 <button
                   type="submit"
                   disabled={!inputValue.trim() || isLoading}
-                  className="p-3 bg-shree-orange text-white rounded-full hover:bg-amber-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+                  className="p-3 bg-shree-orange text-white rounded-full hover:bg-amber-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex-shrink-0"
                 >
                   <Send size={20} />
                 </button>
