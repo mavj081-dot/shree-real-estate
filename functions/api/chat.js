@@ -5,7 +5,7 @@ export async function onRequestPost(context) {
 
         // 2. Get the API Key from Cloudflare Environment Variables
         const apiKey = context.env.GEMINI_API_KEY;
-        console.log("first")
+        
         if (!apiKey) {
             return new Response(JSON.stringify({ error: "Missing API Key" }), {
                 status: 500,
